@@ -1,0 +1,18 @@
+#day 1: Group aggregation and ranking
+# Your task: Find the employee with the highest average rating.
+library(dplyr)
+
+ratings <- data.frame(
+  employee_id = c(301, 302, 301, 303, 302, 304, 301, 303, 304, 302, 303, 304),
+  rating = c(4.5, 3.8, 4.8, 4.2, 4.1, 4.9, 4.6, 4.5, 4.7, 4.0, 4.4, 4.8)
+)
+
+ratings
+##########################################################################
+
+rating_calc <- ratings %>%
+  group_by(employee_id) %>%
+  summarise(avg_rating = mean(rating)) %>%
+  slice_max(avg_rating, n = 1)
+print(rating_calc)
+```

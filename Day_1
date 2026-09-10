@@ -9,10 +9,32 @@ ratings <- data.frame(
 
 ratings
 ##########################################################################
-
+#my solution
 rating_calc <- ratings %>%
   group_by(employee_id) %>%
   summarise(avg_rating = mean(rating)) %>%
   slice_max(avg_rating, n = 1)
 print(rating_calc)
 ```
+
+
+#day 1 task 2
+#Your task: Find the employee_id with the highest total sales.
+
+library(dplyr)
+
+sales <- data.frame(
+  employee_id = c(101, 102, 101, 103, 102, 104, 103, 101, 104, 102),
+  sales_amount = c(250, 400, 300, 150, 350, 500, 450, 200, 300, 100)
+)
+
+sales
+##########################################################################
+#my solution
+highest_total_sales <- sales %>% 
+  group_by(employee_id) %>% 
+  summarise(sale_sum = sum(sales_amount)) %>% 
+  slice_max(sale_sum, n = 1)
+print(highest_total_sales)
+
+

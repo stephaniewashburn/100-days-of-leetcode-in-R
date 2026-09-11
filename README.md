@@ -24,6 +24,7 @@ Topics covered throughout the challenge include:
 |---|---|---|
 | 1 | Grouped Aggregation & Ranking | ✅ |
 | 2 | Filtering & Column Selection | ✅ |
+| 3 | Grouping, Sorting, and Summary Stats | ✅ |
 
 ## Goal
 

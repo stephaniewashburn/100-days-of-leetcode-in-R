@@ -1,0 +1,46 @@
+#Day 3: Grouping + Summary Stats and Sorting
+# Your task: Calculate the average accuracy for each condition and arrange the results from highest average accuracy to lowest.
+library(dplyr)
+
+experiments <- data.frame(
+  participant_id = c(101, 102, 103, 104, 105, 106, 107, 108,
+                     109, 110, 111, 112),
+  condition = c("Control", "Treatment", "Control", "Treatment",
+                "Control", "Treatment", "Control", "Treatment",
+                "Control", "Treatment", "Control", "Treatment"),
+  accuracy = c(82, 91, 88, 87, 79, 94, 85, 90, 91, 86, 84, 92)
+)
+experiments
+################################################################
+
+accuracy_calc <- experiments %>% 
+  group_by(condition) %>% 
+  summarise(avg = mean(accuracy)) %>% 
+  arrange(desc(avg))
+
+print(accuracy_calc)
+  
+  
+
+#############################################################
+#Variation 2
+# Your task: Calculate the average hours worked for each department and arrange the departments from lowest average hours worked to highest.
+
+library(dplyr)
+
+departments <- data.frame(
+  employee_id = c(201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212),
+  department = c("Research", "Engineering", "Research", "Marketing",
+                 "Engineering", "Research", "Marketing", "Engineering",
+                 "Research", "Marketing", "Engineering", "Marketing"),
+  hours_worked = c(42, 48, 38, 40, 45, 46, 37, 50, 44, 43, 47, 39)
+)
+
+
+
+calc <- departments %>% 
+  group_by(department) %>% 
+  summarize(avg_hours = mean(hours_worked)) %>% 
+  arrange(avg_hours)
+
+print(calc)  

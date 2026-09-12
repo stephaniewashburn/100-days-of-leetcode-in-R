@@ -1,0 +1,55 @@
+#Day 4: Filtering, Grouping, and Summarizing
+#Your task
+#Only consider employees with a performance score of at least 90.
+#Then calculate the average number of projects completed for each department.
+#Finally, arrange the departments from highest average projects completed to lowest.
+
+
+library(dplyr)
+
+performance <- data.frame(
+  employee_id = c(301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312),
+  department = c("Research", "Engineering", "Research", "Marketing",
+                 "Engineering", "Research", "Marketing", "Engineering",
+                 "Research", "Marketing", "Engineering", "Marketing"),
+  projects_completed = c(5, 8, 7, 4, 6, 9, 3, 7, 8, 5, 9, 6),
+  performance_score = c(88, 94, 91, 79, 86, 96, 82, 89, 93, 85, 92, 87)
+)
+###########################################################################
+
+calc <- performance %>% 
+  filter(performance_score >= 90) %>% 
+  group_by(department) %>% 
+  summarise(avg_projects = mean(projects_completed)) %>% 
+  arrange(desc(avg_projects))
+print(calc)
+
+#Day 4 task 2:
+# Your task
+#Only consider participants in the Treatment condition.
+#Then calculate the average accuracy for each age group.
+#Finally, arrange the age groups from highest average accuracy → lowest.
+
+library(dplyr)
+
+trials <- data.frame(
+  participant_id = c(101, 102, 103, 104, 105, 106, 107, 108,
+                     109, 110, 111, 112, 113, 114),
+  age_group = c("Young", "Older", "Young", "Older", "Young", "Older",
+                "Young", "Older", "Young", "Older", "Young", "Older",
+                "Young", "Older"),
+  condition = c("Control", "Control", "Treatment", "Treatment",
+                "Control", "Treatment", "Treatment", "Control",
+                "Treatment", "Treatment", "Control", "Control",
+                "Treatment", "Treatment"),
+  accuracy = c(.91, .84, .95, .88, .87, .93, .89,
+               .81, .96, .90, .85, .86, .92, .94)
+)
+##################################################################################
+calc <- trials %>% 
+  filter(condition == "Treatment") %>%
+  group_by(age_group) %>% 
+  summarise(avg_accuracy = mean(accuracy)) %>% 
+  arrange(desc(avg_accuracy))
+
+print(calc)

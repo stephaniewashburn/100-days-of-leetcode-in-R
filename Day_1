@@ -1,4 +1,4 @@
-#day 1: Group aggregation and ranking
+# Day 1: Group aggregation and ranking
 # Your task: Find the employee with the highest average rating.
 library(dplyr)
 
@@ -9,7 +9,7 @@ ratings <- data.frame(
 
 ratings
 ##########################################################################
-#my solution
+# My solution
 rating_calc <- ratings %>%
   group_by(employee_id) %>%
   summarise(avg_rating = mean(rating)) %>%
@@ -18,8 +18,8 @@ print(rating_calc)
 ```
 
 
-#day 1 task 2
-#Your task: Find the employee_id with the highest total sales.
+# Variation 2
+# Your task: Find the employee_id with the highest total sales.
 
 library(dplyr)
 
@@ -30,7 +30,7 @@ sales <- data.frame(
 
 sales
 ##########################################################################
-#my solution
+# My solution
 highest_total_sales <- sales %>% 
   group_by(employee_id) %>% 
   summarise(sale_sum = sum(sales_amount)) %>% 

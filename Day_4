@@ -1,8 +1,8 @@
-#Day 4: Filtering, Grouping, and Summarizing
-#Your task
-#Only consider employees with a performance score of at least 90.
-#Then calculate the average number of projects completed for each department.
-#Finally, arrange the departments from highest average projects completed to lowest.
+# Day 4: Filtering, Grouping, and Summarizing
+# Your task
+# Only consider employees with a performance score of at least 90.
+# Then calculate the average number of projects completed for each department.
+# Finally, arrange the departments from highest average projects completed to lowest.
 
 
 library(dplyr)
@@ -16,7 +16,7 @@ performance <- data.frame(
   performance_score = c(88, 94, 91, 79, 86, 96, 82, 89, 93, 85, 92, 87)
 )
 ###########################################################################
-
+# My solution
 calc <- performance %>% 
   filter(performance_score >= 90) %>% 
   group_by(department) %>% 
@@ -24,7 +24,7 @@ calc <- performance %>%
   arrange(desc(avg_projects))
 print(calc)
 
-#Day 4 task 2:
+# Variation 2: 
 # Your task
 #Only consider participants in the Treatment condition.
 #Then calculate the average accuracy for each age group.
@@ -46,6 +46,7 @@ trials <- data.frame(
                .81, .96, .90, .85, .86, .92, .94)
 )
 ##################################################################################
+# My solution
 calc <- trials %>% 
   filter(condition == "Treatment") %>%
   group_by(age_group) %>% 

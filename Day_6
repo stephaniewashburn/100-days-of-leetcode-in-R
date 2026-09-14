@@ -1,0 +1,63 @@
+#Day 6 
+# Your task
+
+#Create a dataframe called older_survey that:
+
+#Keeps only Older participants.
+#Keeps only participants who actually completed the survey.
+#Combines the datasets using participant_id.
+#Keeps only these columns:
+
+library(dplyr)
+
+participants <- data.frame(
+  participant_id = c(101, 102, 103, 104, 105, 106, 107),
+  age_group = c("Younger", "Older", "Older", "Younger",
+                "Older", "Younger", "Older")
+)
+
+survey <- data.frame(
+  participant_id = c(101, 102, 104, 105, 107),
+  stress_score = c(18, 24, 15, 29, 21)
+)
+
+################################################################
+# My solution
+data1 <- participants %>% 
+  filter(age_group == "Older")
+
+data2 <- survey %>% 
+  filter(!is.na(stress_score))
+  
+older_survey <- inner_join(data1, data2, by = "participant_id") %>% 
+  select(participant_id, age_group, stress_score)
+
+print(older_survey)
+
+# Variation 2
+
+# Create a dataframe called research_training that:
+# Keeps all Research employees, whether or not they completed training.
+# Combines their training information using employee_id.
+# Employees who didn't complete training should remain in the dataframe with NA for training_score.
+
+library(dplyr)
+
+employees <- data.frame(
+  employee_id = c(201, 202, 203, 204, 205, 206),
+  department = c("Research", "Engineering", "Research",
+                 "Research", "Engineering", "Research")
+)
+
+training <- data.frame(
+  employee_id = c(201, 203, 205),
+  training_score = c(92, 87, 95)
+)
+#############################################################
+# My solution
+research_training <- employees %>% 
+  filter(department == "Research") %>% 
+  left_join(training, by = "employee_id") %>% 
+  select(employee_id, department, training_score)
+
+print(research_training)

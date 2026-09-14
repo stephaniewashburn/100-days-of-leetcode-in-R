@@ -31,5 +31,9 @@ Topics covered throughout the challenge include:
 | 2 | Filtering & Column Selection | ✅ |
 | 3 | Grouping, Sorting, and Summary Stats | ✅ |
 | 4 | Filtering, Grouping, and Summary Stats| ✅ |
+| 5 | Joining & Filtering Data with left_join()| ✅ |
+| 6 |Choosing Between left_join() and inner_join()| ✅ |
+
+
 
 

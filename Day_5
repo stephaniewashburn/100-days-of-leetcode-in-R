@@ -1,0 +1,79 @@
+#Day 5
+library(dplyr)
+
+participants <- data.frame(
+  participant_id = c(101, 102, 103, 104, 105, 106),
+  age_group = c("Younger", "Older", "Younger", "Older", "Older", "Younger")
+)
+
+performance <- data.frame(
+  participant_id = c(101, 102, 103, 104, 105, 106),
+  accuracy = c(0.82, 0.91, 0.76, 0.88, NA, 0.95),
+  reaction_time = c(510, 620, 480, 540, 590, 455)
+)
+
+
+#Create a dataframe called older_fast that:
+
+#Combines participants and performance using participant_id.
+#Keeps only Older adults.
+#Removes participants whose accuracy is missing.
+#Keeps only participants with a reaction time below 600 ms.
+#Keeps only these columns:
+#participant_id
+#accuracy
+#reaction_time
+##########################################################################
+#My solution
+dataframe1 <- participants %>% 
+  filter(age_group == "Older") 
+
+
+dataframe2 <- performance %>% 
+  filter(!is.na(accuracy)) %>% 
+  filter(reaction_time < 600) 
+  
+combined_data <- left_join(dataframe1, dataframe2, by = "participant_id") %>% 
+  select(participant_id, accuracy, reaction_time)
+
+print(combined_data)
+
+#Variation 2
+# Your task
+
+#Create a dataframe called research_high that:
+
+#Keeps only employees in Research.
+#Removes employees with a missing performance_score.
+#Keeps employees with a performance score of at least 90.
+#Joins the two datasets using employee_id.
+#Keeps only:
+#employee_id, performance_score, and hours_worked.
+
+  library(dplyr)
+
+employees <- data.frame(
+  employee_id = c(201, 202, 203, 204, 205, 206),
+  department = c("Research", "Engineering", "Research",
+                 "Research", "Engineering", "Research")
+)
+
+scores <- data.frame(
+  employee_id = c(201, 202, 203, 204, 205, 206),
+  performance_score = c(88, 94, NA, 91, 86, 97),
+  hours_worked = c(38, 42, 35, 45, 40, 39)
+)
+
+
+
+data1 <- employees %>% 
+  filter(department == "Research")
+  
+data2 <- scores %>% 
+  filter(!is.na(performance_score)) %>% 
+  filter(performance_score >= 90)       
+         
+research_high <- left_join(data1, data2, by = "employee_id") %>% 
+  select(employee_id, performance_score, hours_worked)
+
+print(research_high)

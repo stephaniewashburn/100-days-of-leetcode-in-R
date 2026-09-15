@@ -33,7 +33,7 @@ Topics covered throughout the challenge include:
 | 4 | Filtering, Grouping, and Summary Stats| ✅ |
 | 5 | Joining & Filtering Data with left_join()| ✅ |
 | 6 |Choosing Between left_join() and inner_join()| ✅ |
-
+| 7 |Filtering, Mutating, Selecting & Sorting| ✅ |
 
 
 

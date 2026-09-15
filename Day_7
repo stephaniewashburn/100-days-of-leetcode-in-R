@@ -1,0 +1,69 @@
+#Day 7
+#Create a dataframe called older_treatment that:
+
+#Keeps only participants who are Older AND in the Treatment condition.
+#Creates a new variable called accuracy_percent that converts accuracy from a proportion to a percentage.
+#Keeps only these columns:
+#participant_id
+#accuracy_percent
+#reaction_time
+
+
+library(dplyr)
+
+participants <- data.frame(
+  participant_id = c(301, 302, 303, 304, 305, 306, 307, 308),
+  age_group = c("Older", "Younger", "Older", "Younger",
+                "Older", "Older", "Younger", "Older"),
+  condition = c("Treatment", "Treatment", "Control", "Treatment",
+                "Treatment", "Control", "Treatment", "Treatment"),
+  accuracy = c(0.88, 0.94, 0.79, 0.91, 0.85, 0.90, 0.96, 0.82),
+  reaction_time = c(520, 470, 610, 490, 550, 580, 460, 530)
+)
+################################################################################
+#My solution
+older_treatment <- participants %>% 
+  filter(age_group == "Older") %>% 
+  filter(condition == "Treatment") %>% 
+  mutate(accuracy_percent = accuracy*100) %>%
+  arrange(reaction_time) %>% 
+  select(participant_id, accuracy_percent, reaction_time)
+
+print(older_treatment)
+
+#Variation 2
+#Create a dataframe called research_performance that:
+#Keeps only Research employees who are Full-Time.
+#Creates a new variable called tasks_per_hour:
+#tasks_completed / hours_worked
+
+#Keeps only:
+#employee_id
+#tasks_completed
+#hours_worked
+#tasks_per_hour
+#Sorts employees from highest → lowest tasks_per_hour.
+
+library(dplyr)
+
+employees <- data.frame(
+  employee_id = c(401, 402, 403, 404, 405, 406, 407, 408, 409),
+  department = c("Research", "Research", "Engineering", "Research",
+                 "Engineering", "Research", "Engineering", "Research", "Research"),
+  status = c("Full-Time", "Part-Time", "Full-Time", "Full-Time",
+             "Full-Time", "Full-Time", "Part-Time", "Full-Time", "Full-Time"),
+  tasks_completed = c(18, 12, 24, 21, 27, 16, 19, 25, 20),
+  hours_worked = c(35, 22, 40, 38, 42, 30, 25, 41, 36)
+  
+)
+#############################################################3
+# My solution
+research_performance <- employees %>% 
+  filter(department == "Research") %>% 
+  filter(status == "Full-Time") %>% 
+  mutate(tasks_per_hour = tasks_completed / hours_worked) %>% 
+  arrange(desc(tasks_per_hour)) %>% 
+  select(employee_id, tasks_completed, hours_worked, tasks_per_hour)
+
+print(research_performance)
+```

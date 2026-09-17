@@ -1,0 +1,68 @@
+#Day 8 
+#Your challenge
+
+#Using dplyr:
+
+#Group by employee_id.
+#Calculate each employee's total tasks completed.
+#Calculate each employee's total hours worked.
+#Create tasks_per_hour using those two totals.
+#Arrange employees from highest to lowest tasks_per_hour.
+#Keep only:
+#employee_id, total_tasks, total_hours, tasks_per_hour
+
+
+library(dplyr)
+
+performance <- data.frame(
+  employee_id = c(201, 201, 202, 202, 203, 203, 204, 204),
+  department = c("Research", "Research", "Engineering", "Engineering",
+                 "Research", "Research", "Engineering", "Engineering"),
+  tasks_completed = c(8, 12, 15, 9, 11, 14, 13, 16),
+  hours_worked = c(4, 5, 6, 4, 5, 6, 5, 7)
+)
+##########################################################################3
+#My solution
+employee_performance <- performance %>% 
+  group_by(employee_id) %>% 
+  summarise(total_tasks = sum(tasks_completed), 
+  total_hours = sum(hours_worked)) %>% 
+  mutate(tasks_per_hour = sum(total_tasks / total_hours)) %>% 
+  arrange(desc(tasks_per_hour)) %>% 
+  select(employee_id, total_tasks, total_hours, tasks_per_hour)
+
+print(employee_performance)
+
+#Variation 2
+# Groups the data by participant_id.
+#Calculates each participant's total number of correct trials → total_correct.
+#Calculates each participant's total number of completed trials → total_trials.
+#Creates accuracy_percent using:
+#total_correct / total_trials * 100
+#Sorts participants from highest to lowest accuracy.
+#Keeps only:
+#participant_id, total_correct, total_trials, accuracy_percent
+#Prints participant_accuracy.
+
+library(dplyr)
+
+study_sessions <- data.frame(
+  participant_id = c(101, 101, 102, 102, 103, 103, 104, 104),
+  trials_correct = c(18, 22, 15, 19, 24, 21, 17, 20),
+  trials_completed = c(25, 30, 20, 25, 30, 25, 20, 25)
+)
+###################################################################
+#My solution
+participant_accuracy <- study_sessions %>%
+  group_by(participant_id) %>% 
+  summarise(
+    total_correct = sum(trials_correct),
+    total_trials = sum(trials_completed)
+    ) %>% 
+  mutate(accuracy_percent = (total_correct / total_trials) * 100 ) %>% 
+  arrange(desc(accuracy_percent)) %>% 
+  select(participant_id, total_correct, total_trials, accuracy_percent)
+
+print(participant_accuracy)
+  
+

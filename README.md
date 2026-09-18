@@ -35,6 +35,7 @@ Topics covered throughout the challenge include:
 | 6 |Choosing Between left_join() and inner_join()| ✅ |
 | 7 |Filtering, Mutating, Selecting & Sorting| ✅ |
 | 8 |Grouped Summaries + Ranking| ✅ |
+| 9 |Filtering for Missing and Non-Missing Values| ✅ |
 
 
 

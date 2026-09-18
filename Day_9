@@ -1,0 +1,38 @@
+#Day 9
+
+#Your task: Create a new dataframe called complete_participants that:
+
+#Keeps only participants who have BOTH an accuracy score AND a reaction-time score.
+#Creates a new variable called accuracy_percent equal to accuracy × 100.
+#Keeps only:
+#participant_id
+#age_group
+#accuracy_percent
+#reaction_time
+#Sorts participants from fastest to slowest reaction time.
+#Print the result.
+
+library(dplyr)
+
+library(dplyr)
+
+participants <- data.frame(
+  participant_id = c(101, 102, 103, 104, 105, 106, 107, 108),
+  age_group = c("Younger", "Older", "Older", "Younger",
+                "Older", "Younger", "Older", "Younger"),
+  accuracy = c(0.91, NA, 0.84, 0.95, NA, 0.88, 0.79, 0.93),
+  reaction_time = c(480, 560, NA, 450, 610, 505, NA, 470)
+)
+
+
+##################################################################
+# My solution
+complete_participants <- participants %>% 
+  filter(!is.na(accuracy)) %>% 
+  filter(!is.na(reaction_time)) %>% 
+  mutate(accuracy_percent = accuracy * 100) %>% 
+  select(participant_id, age_group, accuracy_percent, reaction_time) %>% 
+  arrange(reaction_time)
+
+print(complete_participants)
+  

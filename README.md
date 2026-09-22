@@ -42,12 +42,12 @@ Topics covered throughout the challenge include:
 ## Remaining Plan
 100-Day R Challenge — Days 10–100
 Days 10–15 — Intermediate dplyr
-Day 10: case_when() and conditional variables
-Day 11: count() / proportions
-Day 12: Multiple grouped summaries with across()
-Day 13: distinct() and duplicate handling
-Day 14: More complex filtering with %in% and between()
-Day 15: Mixed data-cleaning challenge combining previous skills
+- Day 10: case_when() and conditional variables
+- Day 11: count() / proportions
+- Day 12: Multiple grouped summaries with across()
+- Day 13: distinct() and duplicate handling
+- Day 14: More complex filtering with %in% and between()
+- Day 15: Mixed data-cleaning challenge combining previous skills
 Days 16–22 — Reshaping & Joining Real Research Data
 pivot_longer()
 pivot_wider()
@@ -145,7 +145,5 @@ Fit and interpret a regression model
 Fit and interpret an MLM
 Day 100 — Final Challenge 🏆
 Raw longitudinal behavioral dataset → cleaning → reshaping → visualization → descriptive statistics → MLM → post-hoc comparisons → interpretation → publication-ready results.
-
-
 
 

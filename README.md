@@ -36,43 +36,43 @@ Topics covered throughout the challenge include:
 | 7 |Filtering, Mutating, Selecting & Sorting| ✅ |
 | 8 |Grouped Summaries + Ranking| ✅ |
 | 9 |Filtering for Missing and Non-Missing Values| ✅ |
-Creating Categories with case_when()
+| 10 |Creating Categories with case_when()| ✅ |
+
 
 
 
 ## Remaining Plan
 100-Day R Challenge — Days 10–100
 Days 10–15 — Intermediate dplyr
-- Day 10: case_when() and conditional variables
 - Day 11: count() / proportions
 - Day 12: Multiple grouped summaries with across()
 - Day 13: distinct() and duplicate handling
 - Day 14: More complex filtering with %in% and between()
 - Day 15: Mixed data-cleaning challenge combining previous skills
 Days 16–22 — Reshaping & Joining Real Research Data
-pivot_longer()
-pivot_wider()
-Multiple-key joins
-Finding unmatched IDs with anti_join()
-Combining participant-, trial-, and session-level datasets
-Duplicate/missing-ID problems
-Full multi-table research-data challenge
+- pivot_longer()
+- pivot_wider()
+- Multiple-key joins
+- Finding unmatched IDs with anti_join()
+- Combining participant-, trial-, and session-level datasets
+- Duplicate/missing-ID problems
+- Full multi-table research-data challenge
 Days 23–30 — ggplot2
-Scatterplots
-Bar plots
-Histograms
-Boxplots
-Violin plots
-Grouped plots using fill/color
-Faceting
-Publication-style plot challenge
+- Scatterplots
+- Bar plots
+- Histograms
+- Boxplots
+- Violin plots
+- Grouped plots using fill/color
+- Faceting
+- Publication-style plot challenge
 Days 31–37 — Exploratory Data Analysis
-Descriptive statistics
-Group differences
-Correlations
-Outlier detection
-Distributions
-Missing-data patterns
+- Descriptive statistics
+- Group differences
+- Correlations
+- Outlier detection
+- Distributions
+- Missing-data patterns
 Complete EDA challenge
 Days 38–45 — Statistical Testing
 One-sample t-test

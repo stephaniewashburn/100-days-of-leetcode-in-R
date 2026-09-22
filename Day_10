@@ -1,0 +1,34 @@
+#Day 10
+
+#Your task:
+
+#Create a dataframe called performance_groups that:
+
+#Creates a new variable called performance_level.
+#Participants with accuracy ≥ .90 should be "High".
+#Participants with accuracy ≥ .80 but < .90 should be "Moderate".
+#Everyone else should be "Low".
+#Keep only participant_id, age_group, accuracy, and performance_level.
+#Sort the dataframe so the highest accuracy is first.
+#Print the result.
+
+library(dplyr)
+
+participants <- data.frame(
+  participant_id = c(101, 102, 103, 104, 105, 106, 107, 108),
+  age_group = c("Younger", "Older", "Older", "Younger",
+                "Older", "Younger", "Older", "Younger"),
+  accuracy = c(0.91, 0.67, 0.84, 0.95, 0.72, 0.88, 0.79, 0.93),
+  reaction_time = c(480, 610, 525, 450, 590, 505, 560, 470)
+)
+
+performance_groups <- participants %>% 
+  mutate(performance_level = case_when(
+  accuracy >= .90 ~ "High",
+  accuracy >= .80 & accuracy < .90 ~ "Moderate",
+  TRUE ~ "Low"
+)) %>% 
+  select("participant_id", "age_group", "accuracy", "performance_level") %>% 
+  arrange(accuracy)
+
+print(performance_groups)

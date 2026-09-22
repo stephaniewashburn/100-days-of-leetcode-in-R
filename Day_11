@@ -1,0 +1,39 @@
+#Day 11
+# Your task:
+
+#Create a dataframe called response_summary that:
+
+#Counts how many participants fall into each combination of age_group and response.
+#Call the count column n.
+
+#Within each age group, calculate a new variable called proportion:
+
+#proportion = n / total participants in that age group
+
+#Create percent equal to proportion * 100.
+#Keep:
+#age_group, response, n, proportion, percent
+#Print the result.
+
+
+library(dplyr)
+
+participants <- data.frame(
+  participant_id = c(101, 102, 103, 104, 105, 106, 107, 108, 109, 110,
+                     111, 112, 113, 114, 115),
+  age_group = c("Younger", "Older", "Older", "Younger", "Older",
+                "Younger", "Older", "Younger", "Older", "Younger",
+                "Older", "Older", "Younger", "Older", "Younger"),
+  response = c("Correct", "Incorrect", "Correct", "Correct", "Incorrect",
+               "Correct", "Correct", "Incorrect", "Incorrect", "Correct",
+               "Correct", "Incorrect", "Correct", "Correct", "Incorrect")
+)
+
+response_summary <- participants %>% 
+  count(age_group, response, name = "n") %>% 
+  group_by(age_group) %>% 
+  mutate(proportion = n / sum(n)) %>% 
+  mutate(percent = proportion * 100) %>% 
+  select(age_group, response, n, proportion, percent)
+
+print(response_summary)

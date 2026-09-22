@@ -36,6 +36,7 @@ Topics covered throughout the challenge include:
 | 7 |Filtering, Mutating, Selecting & Sorting| ✅ |
 | 8 |Grouped Summaries + Ranking| ✅ |
 | 9 |Filtering for Missing and Non-Missing Values| ✅ |
+Creating Categories with case_when()
 
 
 

@@ -40,13 +40,13 @@ Topics covered throughout the challenge include:
 | 11 |count() / proportions| ✅ |
 | 12 |Multiple grouped summaries with across()| ✅ |
 | 13 |distinct() and duplicate handling| ✅ |
+- Day 14: More complex filtering with %in% and between()
 
 
 
 ## Remaining Plan
 100-Day R Challenge — Days 10–100
 
-- Day 14: More complex filtering with %in% and between()
 - Day 15: Mixed data-cleaning challenge combining previous skills
 Days 16–22 — Reshaping & Joining Real Research Data
 - pivot_longer()
@@ -74,53 +74,53 @@ Days 31–37 — Exploratory Data Analysis
 - Missing-data patterns
 Complete EDA challenge
 Days 38–45 — Statistical Testing
-One-sample t-test
-Independent t-test
-Paired t-test
-Chi-square
-Correlation tests
-ANOVA
-Effect sizes
-Choosing the appropriate statistical test
+- One-sample t-test
+- Independent t-test
+- Paired t-test
+- Chi-square
+- Correlation tests
+- ANOVA
+- Effect sizes
+- Choosing the appropriate statistical test
 Days 46–55 — Linear Regression
-Simple regression
-Multiple regression
-Categorical predictors
-Dummy/reference coding
-Interactions
-Continuous × categorical interactions
-Predictions
-Residuals
-Model diagnostics
-Full regression-analysis challenge
+- Simple regression
+- Multiple regression
+- Categorical predictors
+- Dummy/reference coding
+- Interactions
+- Continuous × categorical interactions
+- Predictions
+- Residuals
+- Model diagnostics
+- Full regression-analysis challenge
 Days 56–63 — Advanced Data Manipulation
-lag() / lead()
-Cumulative variables
-Within-person change
-Rolling/daily summaries
-Participant-level vs trial-level variables
-Standardization (scale)
-Centering predictors
-Complex wrangling challenge
+- lag() / lead()
+- Cumulative variables
+- Within-person change
+- Rolling/daily summaries
+- Participant-level vs trial-level variables
+- Standardization (scale)
+- Centering predictors
+- Complex wrangling challenge
 Days 64–70 — Longitudinal Data
-Long-format repeated measures
-Time variables
-Baseline/change scores
-Within-person vs between-person effects
-Person-mean centering
-Visualizing trajectories
-Longitudinal analysis challenge
+-  Long-format repeated measures
+- Time variables
+- Baseline/change scores
+- Within-person vs between-person effects
+- Person-mean centering
+- Visualizing trajectories
+- Longitudinal analysis challenge
 Days 71–80 — Multilevel Models I
-Why MLM instead of ordinary regression
-lmer() basics
-Random intercept models
-Fixed effects
-Interpreting coefficients
-ICC
-Adding level-1 predictors
-Adding level-2 predictors
-Cross-level interactions
-Model comparison
+- Why MLM instead of ordinary regression
+- lmer() basics
+- Random intercept models
+- Fixed effects
+- Interpreting coefficients
+- ICC
+- Adding level-1 predictors
+-Adding level-2 predictors
+- Cross-level interactions
+- Model comparison
 Days 81–88 — Multilevel Models II
 Random slopes
 Random intercept + slope models

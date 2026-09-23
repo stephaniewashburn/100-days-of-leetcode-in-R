@@ -40,8 +40,7 @@ Topics covered throughout the challenge include:
 | 11 |count() / proportions| ✅ |
 | 12 |Multiple grouped summaries with across()| ✅ |
 | 13 |distinct() and duplicate handling| ✅ |
-- Day 14: More complex filtering with %in% and between()
-
+| 14 | More complex filtering with %in% and between()| ✅ |
 
 
 ## Remaining Plan

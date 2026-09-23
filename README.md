@@ -38,13 +38,14 @@ Topics covered throughout the challenge include:
 | 9 |Filtering for Missing and Non-Missing Values| ✅ |
 | 10 |Creating Categories with case_when()| ✅ |
 | 11 |count() / proportions| ✅ |
-- Day 12: Multiple grouped summaries with across()
+| 12 |Multiple grouped summaries with across()| ✅ |
+| 13 |distinct() and duplicate handling| ✅ |
 
 
 
 ## Remaining Plan
 100-Day R Challenge — Days 10–100
-- Day 13: distinct() and duplicate handling
+
 - Day 14: More complex filtering with %in% and between()
 - Day 15: Mixed data-cleaning challenge combining previous skills
 Days 16–22 — Reshaping & Joining Real Research Data

@@ -1,0 +1,54 @@
+# Day 13 — distinct() + Duplicate Handling + Group Summaries
+# Your task:
+
+# You received a dataset where some participants accidentally appear more than once.
+# Your job is to create a dataframe called clean_summary that:
+
+# Removes duplicate participants using distinct().
+# Keeps the first occurrence of each participant_id.
+# Groups the cleaned data by age_group.
+# Uses across() to calculate the mean of:
+# accuracy
+# reaction_time
+# confidence
+# Names the resulting columns accuracy_mean, reaction_time_mean, and confidence_mean.
+# Keeps only age groups with an accuracy_mean > 0.85.
+# Arranges the results from highest to lowest accuracy_mean.
+# Prints the result.
+
+library(dplyr)
+
+participants <- data.frame(
+  participant_id = c(101, 102, 103, 104, 105, 101, 
+                     106, 107, 108, 103, 109, 110),
+  
+  age_group = c("Younger", "Older", "Older", "Younger", "Older",
+                "Younger", "Younger", "Older", "Younger", "Older",
+                "Older", "Younger"),
+  
+  accuracy = c(0.91, 0.82, 0.87, 0.95, 0.79,
+               0.91, 0.89, 0.84, 0.93, 0.87,
+               0.81, 0.90),
+  
+  reaction_time = c(480, 560, 525, 450, 610,
+                    480, 500, 545, 470, 525,
+                    585, 490),
+  
+  confidence = c(8, 6, 7, 9, 5,
+                 8, 8, 7, 9, 7,
+                 6, 8)
+)
+
+clean_summary <- participants %>% 
+  distinct(participant_id, .keep_all = TRUE) %>% 
+  group_by(age_group) %>% 
+  summarise(across(
+    c(accuracy, reaction_time, confidence),
+    list(mean = mean, sd = sd),
+    .names = "{.col}_{.fn}"
+  )) %>% 
+  filter(accuracy_mean > 0.85) %>% 
+  arrange(desc(accuracy_mean))
+  
+print(clean_summary)
+  

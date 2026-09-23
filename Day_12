@@ -1,0 +1,36 @@
+#Day 12
+#Your task:
+
+#Create a dataframe called age_summary that:
+#Groups participants by age_group.
+#Calculates the mean of all three variables:
+#accuracy
+#reaction_time
+#confidence
+#Calculates the standard deviation of all three variables.
+#Uses across() so you don't manually calculate each variable separately.
+#Prints the result.
+
+library(dplyr)
+
+participants <- data.frame(
+  participant_id = c(101, 102, 103, 104, 105, 106, 107, 108, 109, 110),
+  age_group = c("Younger", "Older", "Older", "Younger", "Older",
+                "Younger", "Older", "Younger", "Older", "Younger"),
+  accuracy = c(0.91, 0.82, 0.87, 0.95, 0.79,
+               0.89, 0.84, 0.93, 0.81, 0.90),
+  reaction_time = c(480, 560, 525, 450, 610,
+                    500, 545, 470, 585, 490),
+  confidence = c(8, 6, 7, 9, 5, 8, 7, 9, 6, 8)
+  
+)
+
+age_summary <- participants %>% 
+  group_by(age_group) %>% 
+  summarise(
+    across(
+      c(accuracy, reaction_time, confidence),
+      list(mean = mean, sd = sd),
+      .names = "{.col}_{.fn}")) %>% 
+print(age_summary)
+  
